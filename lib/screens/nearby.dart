@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/detail.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/custom_textbox.dart';
 import '../widgets/nearby_item.dart';
@@ -33,7 +34,7 @@ class _NearbyPageState extends State<NearbyPage> {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                    (context, index) => buildBody(),
+                    (context,index) => buildBody(context),
                 childCount: 1,
               ),
             )
@@ -73,7 +74,7 @@ class _NearbyPageState extends State<NearbyPage> {
     );
   }
 
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
@@ -118,7 +119,7 @@ class _NearbyPageState extends State<NearbyPage> {
                 child:Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children:[
-                    getNearbyList(),
+                    getNearbyList(context),
                   ]
                 ),
               ),
@@ -127,11 +128,12 @@ class _NearbyPageState extends State<NearbyPage> {
       ),
     );
   }
-  getNearbyList(){
+  getNearbyList(BuildContext context){
     return
       Container(
        child: Column(
-          children: List.generate(
+          children:
+          List.generate(
             features.length,
                 (index) => NearbyItem(
               data: features[index],
@@ -140,10 +142,15 @@ class _NearbyPageState extends State<NearbyPage> {
               features[index]["is_favorited"] =
               !features[index]["is_favorited"];
               });},
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
+              },
             ),
           ),
         ),
       );
   }
+
+
+
 }

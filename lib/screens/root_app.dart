@@ -4,6 +4,7 @@ import '/theme/color.dart';
 import '/utils/constant.dart';
 import '/widgets/bottombar_item.dart';
 
+import 'detail.dart';
 import 'home.dart';
 import 'explore.dart';
 import 'nearby.dart';
