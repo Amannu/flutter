@@ -7,6 +7,7 @@ import '/widgets/feature_item.dart';
 import '/widgets/notification_box.dart';
 import '/widgets/recommend_item.dart';
 import 'detail.dart';
+import 'recommended_detail.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -186,7 +187,7 @@ class _HomePageState extends State<HomePage> {
             child: RecommendItem(
               data: recommends[index],
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RecommendedDetailPage(index: index,)));
               },
             ),
           ),

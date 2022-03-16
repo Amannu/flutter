@@ -1,19 +1,26 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../utils/data.dart';
+import '../widgets/bottombar_item.dart';
 import '../widgets/detaildescription_item.dart';
+import '../widgets/detailimage_item.dart';
+import '../widgets/feature_item.dart';
 import '/theme/color.dart';
 import '/widgets/icon_box.dart';
+import 'explore.dart';
+import 'home.dart';
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key,required this.index}) : super(key: key);
+class RecommendedDetailPage extends StatefulWidget {
+  const RecommendedDetailPage({Key? key,required this.index}) : super(key: key);
   final int index;
   @override
-  _DetailPageState createState() => _DetailPageState(index);
+  _RecommendedDetailPageState createState() => _RecommendedDetailPageState(index);
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _RecommendedDetailPageState extends State<RecommendedDetailPage> {
   int index;
-  _DetailPageState(this.index);
+  _RecommendedDetailPageState(this.index);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +44,11 @@ class _DetailPageState extends State<DetailPage> {
         body:
         CustomScrollView(
           slivers: [SliverList(
-              delegate: SliverChildBuilderDelegate(
-                    (context, index) => buildBody(context),
-                childCount: 1,
-              ),
-            )
+            delegate: SliverChildBuilderDelegate(
+                  (context, index) => buildBody(context),
+              childCount: 1,
+            ),
+          )
           ],
         ));
   }
@@ -79,7 +86,8 @@ class _DetailPageState extends State<DetailPage> {
             width: 10,
           ),
           ElevatedButton(
-              child: Text('Book now', style: TextStyle(fontSize: 18, height: 1.5), ),
+              child: Text('Book now',
+                style: TextStyle(fontSize: 18, height: 1.5), ),
               onPressed: () {},
               style: ElevatedButton.styleFrom(primary: primary,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -91,46 +99,47 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
   /**getImageDetail() {
-    return
+      return
       CarouselSlider(
-        options: CarouselOptions(
-          height: 300,
-          viewportFraction: 1,
-          disableCenter: true,
-        ),
-        items: List.generate(
-          features.length,
-              (index) => DetailImageItem(
-            data: features[index],
-            onTapFavorite: () {
-              setState(() {
-                features[index]["is_favorited"] =
-                !features[index]["is_favorited"];
-              });},
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
-            },
-          ),
-          ),
+      options: CarouselOptions(
+      height: 300,
+      viewportFraction: 1,
+      disableCenter: true,
+      ),
+      items: List.generate(
+      features.length,
+      (index) => DetailImageItem(
+      data: features[index],
+      onTapFavorite: () {
+      setState(() {
+      features[index]["is_favorited"] =
+      !features[index]["is_favorited"];
+      });},
+      onTap: () {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
+      },
+      ),
+      ),
       );
-  }
-**/
+      }
+   **/
   getDescriptionDetail() {
     return
       Column(
         children: List.generate(
           1,(index) => DetailDescriptionItem(
           index: widget.index,
-            data: features[widget.index],
-            onTapFavorite: () {
-              setState(() {
-                features[widget.index]["is_favorited"] =
-                !features[widget.index]["is_favorited"];
-              });
-            },
-            onTap: () {},
-          ),
+          data: recommends[widget.index],
+          onTapFavorite: () {
+            setState(() {
+              recommends[widget.index]["is_favorited"] =
+              !recommends[widget.index]["is_favorited"];
+            });
+          },
+          onTap: () {},
+        ),
         ),
       );
   }
+
 }
