@@ -1,15 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../utils/data.dart';
-import '../widgets/bottombar_item.dart';
 import '../widgets/detaildescription_item.dart';
-import '../widgets/detailimage_item.dart';
-import '../widgets/feature_item.dart';
 import '/theme/color.dart';
 import '/widgets/icon_box.dart';
-import 'explore.dart';
-import 'home.dart';
 
 class RecommendedDetailPage extends StatefulWidget {
   const RecommendedDetailPage({Key? key,required this.index}) : super(key: key);

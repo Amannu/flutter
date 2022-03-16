@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import '../utils/data.dart';
 import '/theme/color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'custom_image.dart';
 import 'detailimage_item.dart';
 import 'detailoffer_item.dart';
 import 'favorite_box.dart';
-import 'icon_box.dart';
 import 'raters_box.dart';
 
 class DetailDescriptionItem extends StatelessWidget {
