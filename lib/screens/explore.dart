@@ -9,6 +9,7 @@ import '/widgets/city_item.dart';
 import '/widgets/custom_textbox.dart';
 import '/widgets/icon_box.dart';
 import '/widgets/recommend_item.dart';
+import 'detail.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({ Key? key }) : super(key: key);
@@ -72,7 +73,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 getSearch(),
                 SizedBox(height: 10,),
                 getCategories(),
-                getSearchList(),
+                getSearchList(context),
                 SizedBox(height: 20,),
 
                 SizedBox(height: 20,),
@@ -124,7 +125,7 @@ class _ExplorePageState extends State<ExplorePage> {
       ),
     );
   }
-  getSearchList(){
+  getSearchList(BuildContext context){
     return
       Container(
         margin: EdgeInsets.only(right: 15, left: 15),
@@ -139,7 +140,9 @@ class _ExplorePageState extends State<ExplorePage> {
                 !features[index]["is_favorited"];
               });
             },
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
+            },
           ),
         ),
         ),

@@ -6,6 +6,7 @@ import '/widgets/city_item.dart';
 import '/widgets/feature_item.dart';
 import '/widgets/notification_box.dart';
 import '/widgets/recommend_item.dart';
+import 'detail.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            getFeature(),
+            getFeature(context),
             SizedBox(
               height: 15,
             ),
@@ -140,14 +141,14 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            getRecommend(),
+            getRecommend(context),
           ],
         ),
       ),
     );
   }
 
-  getFeature() {
+  getFeature(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
         height: 300,
@@ -165,13 +166,15 @@ class _HomePageState extends State<HomePage> {
               !features[index]["is_favorited"];
             });
           },
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
+          },
         ),
       ),
     );
   }
 
-  getRecommend() {
+  getRecommend(BuildContext context) {
     return SingleChildScrollView(
       padding: EdgeInsets.fromLTRB(15, 5, 0, 5),
       scrollDirection: Axis.horizontal,
@@ -182,7 +185,9 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 10),
             child: RecommendItem(
               data: recommends[index],
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage(index: index,)));
+              },
             ),
           ),
         ),
