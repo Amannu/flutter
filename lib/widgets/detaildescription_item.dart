@@ -6,13 +6,14 @@ import 'detailimage_item.dart';
 import 'detailoffer_item.dart';
 import 'favorite_box.dart';
 import 'raters_box.dart';
+import 'whattheyoffer_item.dart';
 
 class DetailDescriptionItem extends StatelessWidget {
   DetailDescriptionItem({ Key? key,
     required this.index,
     required this.data,
     this.width = double.infinity,
-    this.height =800,
+    this.height =600,
     this.onTap,
     this.onTapFavorite }) : super(key: key);
   final int index;
@@ -27,7 +28,6 @@ class DetailDescriptionItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width,
-        height: height,
         margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -58,7 +58,7 @@ class DetailDescriptionItem extends StatelessWidget {
 
       Container(
         width: width,
-        height: height,
+        height: 435,
         margin: EdgeInsets.fromLTRB(0, 280, 0, 0),
         decoration: BoxDecoration(
           color: appBgColor,
@@ -74,20 +74,12 @@ class DetailDescriptionItem extends StatelessWidget {
         ),
       ),
             Positioned(
-                right: 20, top: 260,
-                child: FavoriteBox(
-                  size: 20,
-                  onTap: onTapFavorite,
-                  isFavorited: data["is_favorited"],
-                )
-            ),
-            Positioned(
                 left: 15, top:315,
                 child:
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(data["name"], maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                    Text(data["name"], maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
                     SizedBox(height: 5,),
                     SizedBox(height: 5,),
                     Row(
@@ -117,110 +109,26 @@ class DetailDescriptionItem extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: width,
-              height: 60,
-              margin: EdgeInsets.fromLTRB(10, 380,10, 0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: shadowColor.withOpacity(0.1),
-                    spreadRadius: .5,
-                    blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
-                  ),
-                ],
-              ),
-            ),
             Positioned(
-                left: 25, top: 390,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.star, size: 16, color: yellow,),
-                        SizedBox(width: 3,),
-                        Text(data["rate"], style: TextStyle(fontSize: 12, color: mainColor),),
-                      ],
-                    ),
-                    SizedBox(height: 5,),
-                    Row(
-                      children: [
-                        Text("10 reviews", style: TextStyle(fontSize: 13, color: Colors.grey),),
-                      ],
-                    ),
-                    SizedBox(height: 5,),
-
-                  ],
-                )
-            ),
-
-              Positioned(
-                  right: 15, top: 395,
-                  child: RatersBox(
-                    )
-              ),
-            Positioned(
-                right: 35, top: 395,
-                child: RatersBox(
-                )
-            ),
-            Positioned(
-                right: 55, top: 395,
-                child: RatersBox(
-                )
-            ),
-            Positioned(
-                right: 75, top: 395,
-                child: RatersBox(
-                )
-            ),
-            Positioned(
-                right: 95, top: 395,
-                child: RatersBox(
-                )
-            ),
-
-            Positioned(
-              left:15, top: 460,
+              left:15, top: 400,
               child:
-              Text("what they offer", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
+              Text("What they offer", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
             ),
-      Container(
-        width: double.infinity,
-        height: 100,
-        margin: EdgeInsets.fromLTRB(10, 490, 10, 0),
-            child:
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 100,
-
-                viewportFraction: 0.3,
-                disableCenter: true,
+              Container(
+                padding: EdgeInsets.fromLTRB(15, 430, 0, 0),
+                child:
+                WhatTheyOfferItem(data:data),
               ),
-              items: List.generate(
-                albumImages.length,
-                    (index) => DetailOfferItem(
-                      index: index,
-                      data: features[index],
-                ),
-              ),
-            ),
-      ),
             Positioned(
-              left:15, top: 610,
+              left:15, top: 550,
               child:
-              Text("Description", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
+              Text("Description", maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
             ),
             Positioned(
-              left:15, top: 630,right: 15,
+              left:15, top: 570,right: 15,
               child:
-              Text(data["description"], style: TextStyle(fontSize: 14),),
+              Text(data["description"], style: TextStyle(fontSize: 14,color: Colors.grey),),
             ),
-            SizedBox(height: 25,),
           ],
         ),
       ),

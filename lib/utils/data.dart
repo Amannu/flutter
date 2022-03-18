@@ -28,6 +28,17 @@ List cities = [
   {"name": "Steung Treng", "icon": "assets/icons/home.svg"},
 ];
 
+List offers=[
+  {"name":"Gift basket","icon":"assets/icons/gift.svg"},
+  {"name":"Parking","icon":"assets/icons/car.svg"},
+  {"name":"Pool","icon":"assets/icons/pool.svg"},
+  {"name":"Restaurant","icon":"assets/icons/snack.svg"},
+  {"name":"Room Service","icon":"assets/icons/bell.svg"},
+  {"name":"Twin Bed","icon":"assets/icons/bed.svg"},
+  {"name":"Wifi","icon":"assets/icons/wifi.svg"},
+
+];
+
 List<String> albumImages = [
   "https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
@@ -39,6 +50,7 @@ List features = [
   {
     "id": 100,
     "name": "Superior Room",
+    "offer":[offers[6],offers[4],offers[2],offers[1],offers[3]],
     "image":
     "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$210",
@@ -53,6 +65,7 @@ List features = [
   {
     "id": 101,
     "name": "Junior Suite",
+    "offer":[offers[0],offers[5],offers[2],offers[4],offers[3]],
     "image":
     "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$150",
@@ -67,6 +80,7 @@ List features = [
   {
     "id": 102,
     "name": "Classic Queen Room",
+    "offer":[offers[0],offers[4],offers[2],offers[1],offers[3],offers[6]],
     "image":
     "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$320",
@@ -81,6 +95,7 @@ List features = [
   {
     "id": 103,
     "name": "Luxury King",
+    "offer":[offers[0],offers[5],offers[2],offers[1],offers[3]],
     "image":
     "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$350",
@@ -95,6 +110,7 @@ List features = [
   {
     "id": 104,
     "name": "Classic Room",
+    "offer":[offers[3],offers[4],offers[2],offers[1],],
     "image":
     "https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$180",
@@ -109,6 +125,7 @@ List features = [
   {
     "id": 105,
     "name": "Twin Room",
+    "offer":[offers[0],offers[6],offers[2],offers[1],],
     "image":
     "https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$250",
@@ -126,6 +143,7 @@ List recommends = [
   {
     "id": 110,
     "name": "Luxury King",
+    "offer":[offers[0],offers[5],offers[2],offers[1],offers[3]],
     "image":
     "https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$310",
@@ -140,6 +158,7 @@ List recommends = [
   {
     "id": 111,
     "name": "Classic Room",
+    "offer":[offers[3],offers[4],offers[2],offers[1],],
     "image":
     "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$250",
@@ -154,6 +173,7 @@ List recommends = [
   {
     "id": 112,
     "name": "Twin Room",
+    "offer":[offers[0],offers[6],offers[2],offers[1],],
     "image":
     "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "price": "\$190",

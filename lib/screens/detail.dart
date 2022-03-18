@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/data.dart';
 import '../widgets/detaildescription_item.dart';
 import '/theme/color.dart';
@@ -49,45 +50,41 @@ class _DetailPageState extends State<DetailPage> {
 
   Widget buildBody(BuildContext context){
     return SingleChildScrollView(
-        child:Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        child:
             //getImageDetail(),
             getDescriptionDetail(),
-          ],
-        )
+
     );
   }
   Widget getBottomBar() {
-
     return Container(
-      height: 85,
+      height: 75,
+      width: double.infinity,
+      child:Padding(
+        padding: const EdgeInsets.only(
+          left: 15,
+          right: 15,
+          bottom: 15,
+        ),
       child: Row(
         children: [
+         IconBox(child: SvgPicture.asset(
+            "assets/icons/call.svg",
+            color: Colors.white,
+          ), bgColor: green),
           SizedBox(
-            width: 10,
+            width: 15,
           ),
           ElevatedButton(
-              child: Icon(Icons.phone_outlined, color: Colors.white),
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: darkerGreen,
-                shape: CircleBorder(),
-                fixedSize: Size.fromRadius(20),
-              )),
-          SizedBox(
-            width: 10,
-          ),
-          ElevatedButton(
-              child: Text('Book now', style: TextStyle(fontSize: 18, height: 1.5), ),
+              child: Text('Book now', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600), ),
               onPressed: () {},
               style: ElevatedButton.styleFrom(primary: primary,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-                fixedSize: Size.fromWidth(250),
+                fixedSize: Size.fromWidth(279),
 
               ))
         ],
-      ) ,
+      ) ,),
     );
   }
   /**getImageDetail() {
