@@ -33,7 +33,7 @@ class CategoryItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              data["name"],
+              data,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(

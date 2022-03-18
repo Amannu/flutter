@@ -7,6 +7,7 @@ import '/widgets/bottombar_item.dart';
 import 'detail.dart';
 import 'home.dart';
 import 'explore.dart';
+import 'modified_search.dart';
 import 'nearby.dart';
 
 class RootApp extends StatefulWidget {
@@ -25,7 +26,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     },
     {
       "icon": "assets/icons/search.svg",
-      "page": ExplorePage(),
+      "page": SearchPage(),
     },
     {
       "icon": "assets/icons/pin-area.svg",
